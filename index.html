@@ -1,0 +1,610 @@
+.<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Mood Label - The Mood in Society</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: #0a0a0a;
+            color: #ffffff;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #18356b, #23b1f3, #043b68, #4787c2);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(196, 69, 105, 0.3) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+        
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 8rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            animation: titleFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes titleFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .hero .tagline {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            margin-bottom: 30px;
+            font-weight: 300;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.5s both;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .about {
+            background: linear-gradient(135deg, #1377a5 0%, #0d8b8b 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            margin-top: -15vh;
+            padding-top: 200px;
+        }
+        
+        .about h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+        }
+        
+        .about p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            opacity: 0.9;
+            max-width: 800px;
+        }
+        
+        /* Content Blocks */
+        .content-block {
+         
+            padding: 80px 40px;
+            margin: 60px 0;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .content-block:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(255, 107, 53, 0.3);
+        }
+        
+        .content-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, rgba(29, 29, 31, 0.979), #222d3a05, #0772ff);
+        }
+        
+
+        .block-header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .block-image {
+            background: linear-gradient(135deg, #0e3d69, #0c5c66);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            color: white;
+            text-transform: uppercase;
+            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.4);
+            animation: iconPulse 3s ease-in-out infinite;
+            padding: 30px 60px;
+            min-width: 200px;
+        }
+        
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .block-content h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #35e7ffd5;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+        }
+        
+        .block-content p {
+            font-size: 1.2rem;
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg,#0e3d69, #0c5c66); 
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.5);
+            background: linear-gradient(135deg, #f7931e, #ff4757);
+        }
+        
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #0e3d69, #0c5c66);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+            background: linear-gradient(135deg, #f7931e, #ff4757);
+        }
+        
+
+        /* Newsletter Section */
+        .newsletter {
+            background:#111;
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+            padding-top: 150px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #111;
+            padding: 60px 20px 30px;
+            text-align: center;
+            border-top: 3px solid black
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-content h4 {
+            color: #06cbfc;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        
+        .footer-content p {
+            color: #ccc;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .footer-content .designed-by {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #888;
+            font-style: italic;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .block-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            section {
+                padding: 60px 15px;
+            }
+            
+            .content-block {
+                padding: 40px 20px;
+                margin: 30px 0;
+            }
+        }
+        
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+             /* Quick Links Section */
+        .quick-links-section {
+            background: linear-gradient(135deg, #0e3d69, #0c5c66);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quick-links-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, rgba(29, 29, 31, 0.979), #222d3a05, #0772ff);
+        }
+        
+        .quick-links-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .quick-links-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+            color: white;
+        }
+        
+        .quick-links-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        
+        .quick-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 15px 30px;
+            border-radius: 30px;
+            background: linear-gradient(135deg,#0e3d69, #0c5c66); 
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+            display: inline-block;
+        }
+        
+        .quick-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+            background: linear-gradient(135deg, #f7931e, #ff4757);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .quick-links {
+                top: 15px;
+                right: 15px;
+                padding: 10px 15px;
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+            
+            
+            .quick-link {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+            .block-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            section {
+                padding: 60px 15px;
+            }
+            
+            .content-block {
+                padding: 40px 20px;
+                margin: 30px 0;
+            }
+        }
+        
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Social Mood Label</h1>
+            <p class="tagline">The Mood in Society</p>
+        </div>
+        <div class="scroll-indicator">
+            <div style="color: white; font-size: 2rem;">↓</div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about fade-in">
+        <h2>WHO WE ARE</h2>
+        <p>Social Mood Label is a digital-first platform that documents, questions, and reflects on how societal conditions shape collective mood. We explore themes such as; Recreation for well being, Children and youth advocacy, Masculinity, Violence against women, Fashion and identity.</p>
+    </section>
+
+    <!-- Blog Section -->
+    <section>
+    <div class="content-block fade-in">
+        <div class="block-header">
+        <div class="block-image">Blog</div>
+        <div class="block-content">
+            <h3>Research Articles</h3>
+            <p>Our blog explores the mood in society. Spotlighting social issues that are sometimes overlooked but deeply shape our attitudes, behaviour and identity.</p>
+            <a href="https://socialmoodlabel.wordpress.com/blog/" class="cta-button">Read Our Blog</a>
+        </div>
+        </div>
+    </div>
+    </section>
+
+     <!-- SOCIALS Section -->
+    <section>
+    <div class="content-block fade-in">
+        <div class="block-header">
+        <div class="block-image">Socials</div>
+        <div class="block-content">
+            <h3>Connect & Engage</h3>
+            <p>Join the conversation across all platforms. Follow our journey and stay connected with our community.</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/socialmoodlabel/" class="social-link">Instagram</a>
+                <a href="https://www.tiktok.com/@socialmoodlabel" class="social-link">TikTok</a>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+    <div class="content-block fade-in">
+        <div class="block-header">
+        <div class="block-image">News</div>
+        <div class="block-content">
+            <h3>Newsletters</h3>
+            <p>Access our Newsletters. Find content you won't find anywhere else! Feel free to download past issues and never miss a mood.</p>
+            <a href="assets/socialmoodlabelnewsletterissue2.pdf" class="cta-button" download>Download Here</a>
+        </div>
+        </div>
+    </div>
+    </section>
+
+     <!-- Quick Links Section -->
+    <section class="quick-links-section fade-in">
+        <div class="quick-links-container">
+            <h2 class="quick-links-title">Quick Links</h2>
+            <div class="quick-links-grid">
+                <a href="https://socialmoodlabel.wordpress.com/" class="quick-link">Blog</a>
+                <a href="https://www.instagram.com/socialmoodlabel/" class="quick-link">Instagram</a>
+                <a href="https://www.tiktok.com/@socialmoodlabel" class="quick-link">TikTok</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h2>STAY IN THE MOOD</h2>
+            <h4>Get In Touch</h4>
+            <p>Email: socialmoodlabel@gmail.com</p>
+            <p class="designed-by">Designed and Maintained by Pumla P N</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for scroll indicator
+        document.querySelector('.scroll-indicator').addEventListener('click', () => {
+            document.querySelector('.about').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        });
+
+        // Add dynamic background particles effect
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.cssText = `
+                position: fixed;
+                width: 4px;
+                height: 4px;
+                background: rgba(255, 107, 53, 0.6);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 1;
+                animation: float 15s linear infinite;
+            `;
+            
+            particle.style.left = Math.random() * window.innerWidth + 'px';
+            particle.style.top = window.innerHeight + 'px';
+            
+            document.body.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 15000);
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 2000);
+
+        // Add CSS for particle animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                0% {
+                    transform: translateY(0) rotate(0deg);
+                    opacity: 0;
+                }
+                10% {
+                    opacity: 1;
+                }
+                90% {
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(-100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
