@@ -19,6 +19,8 @@ Blog, Socials, and News neatly organized.
 
 Displayed inside sleek black boxes with blue highlights and subtle orange undertones that flash slowly for emphasis.
 
+Current Campaigns section includes an image to keep users up to date with ongoing campaigns, behaving the same way as the other sections.
+
 Updated Socials Section with improved design and links.
 
 🔘 Interactive Buttons & Links
