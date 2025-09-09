@@ -1,6 +1,6 @@
 🌐 Landing Page
 
-
+<img width="102" height="20" alt="image" src="https://github.com/user-attachments/assets/986407b9-8772-41e4-829e-b667db55c220" />
 
 
 A minimalistic yet visually striking single-page landing site with smooth animations, bold color contrasts, and a fully responsive layout across multiple devices.
