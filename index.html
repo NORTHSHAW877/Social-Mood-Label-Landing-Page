@@ -268,6 +268,47 @@
             padding-top: 150px;
         }
         
+
+        /* Campaign Section Styles */
+        .campaign-content {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        .campaign-poster {
+            flex: 0 0 300px;
+            max-width: 300px;
+        }
+
+        .poster-image {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .poster-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.4);
+        }
+
+        .campaign-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .campaign-info p {
+            font-size: 1.2rem;
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
         /* Footer */
         footer {
             background: #111;
@@ -401,6 +442,21 @@
             padding: 12px 25px;
             width: 200px;
         }
+
+        .campaign-content {
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .campaign-poster {
+            flex: none;
+            max-width: 250px;
+        }
+
+        .campaign-info {
+            text-align: center;
+        }
     }
 
     /* Extra small mobile devices */
@@ -462,6 +518,14 @@
         
         .cta-button {
             padding: 10px 20px;
+            font-size: 0.95rem;
+        }
+
+        .campaign-poster {
+            max-width: 200px;
+        }
+
+        .campaign-info p {
             font-size: 0.95rem;
         }
     }
@@ -618,6 +682,27 @@
     <section class="about fade-in">
         <h2>WHO WE ARE</h2>
         <p>Social Mood Label is a digital-first platform that documents, questions, and reflects on how societal conditions shape collective mood. We explore themes such as; Recreation for well being, Children and youth advocacy, Masculinity, Violence against women, Fashion and identity.</p>
+    </section>
+
+    <!-- Current Campaign Section -->
+    <section>
+        <div class="content-block fade-in">
+            <div class="block-header">
+                <div class="block-image">Campaigns</div>
+                <div class="block-content">
+                    <h3>Current Campaign</h3>
+                    <div class="campaign-content">
+                        <div class="campaign-poster">
+                            <img src="images/MOODAUNTS.jpeg" alt="Current Campaign Poster" class="poster-image">
+                        </div>
+                        <div class="campaign-info">
+                            <p>Our latest campaign explores the wonderful women known as aunts. She wears many hats; daughter, sister, friend, maybe even wife, but make no mistake, her ‘auntie’ crown shines the brightest.</p>
+                            <a href="https://socialmoodlabel.wordpress.com/2025/07/07/mood-46%e2%94%82-why-every-calendar-needs-an-aunts-day/" class="cta-button">Read Full Campaign</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Blog Section -->
