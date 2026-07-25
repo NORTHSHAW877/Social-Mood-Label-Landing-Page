@@ -11,7 +11,7 @@
     <meta name="keywords" content="social analysis, research, recreation, third spaces, wellbeing, violence against women, youth culture, adolescence, masculinities, gender, identity, society, advocacy, social research, community spaces">
     <meta name="author" content="Social Mood Label">
     <meta name="robots" content="index, follow">
-    
+
     <!-- CANONICAL URL - CHANGE TO YOUR ACTUAL DOMAIN -->
     <link rel="canonical" href="https://socialmoodlabel.netlify.app/">
 
@@ -34,7 +34,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
@@ -42,7 +42,7 @@
             background: #0a0a0a;
             color: #ffffff;
         }
-        
+
         /* Hero Section */
         .hero {
             height: 100vh;
@@ -56,13 +56,13 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-        
+
         .hero::before {
             content: '';
             position: absolute;
@@ -74,18 +74,18 @@
                         radial-gradient(circle at 80% 20%, rgba(196, 69, 105, 0.3) 0%, transparent 50%);
             animation: pulse 4s ease-in-out infinite;
         }
-        
+
         @keyframes pulse {
             0%, 100% { opacity: 0.8; }
             50% { opacity: 1; }
         }
-        
+
         .hero-content {
             z-index: 2;
             max-width: 800px;
             padding: 0 20px;
         }
-        
+
         .hero h1 {
             font-size: clamp(3rem, 8vw, 8rem);
             font-weight: 900;
@@ -95,12 +95,12 @@
             text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             animation: titleFloat 3s ease-in-out infinite;
         }
-        
+
         @keyframes titleFloat {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
         }
-        
+
         .hero .tagline {
             font-size: clamp(1.2rem, 3vw, 2rem);
             margin-bottom: 30px;
@@ -108,7 +108,7 @@
             opacity: 0.95;
             animation: fadeInUp 1s ease 0.5s both;
         }
-        
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -119,7 +119,7 @@
                 transform: translateY(0);
             }
         }
-        
+
         .scroll-indicator {
             position: absolute;
             bottom: 30px;
@@ -127,7 +127,7 @@
             transform: translateX(-50%);
             animation: bounce 2s infinite;
         }
-        
+
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
             40% { transform: translateX(-50%) translateY(-10px); }
@@ -141,14 +141,14 @@
             margin: 0 auto;
             position: relative;
         }
-        
+
         .about {
             background: linear-gradient(135deg, #1377a5 0%, #0d8b8b 100%);
             clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
             margin-top: -15vh;
             padding-top: 200px;
         }
-        
+
         .about h2 {
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 800;
@@ -156,17 +156,17 @@
             text-transform: uppercase;
             letter-spacing: -0.01em;
         }
-        
+
         .about p {
             font-size: 1.3rem;
             line-height: 1.8;
             opacity: 0.9;
             max-width: 800px;
         }
-        
+
         /* Content Blocks */
         .content-block {
-         
+
             padding: 80px 40px;
             margin: 60px 0;
             border-radius: 20px;
@@ -174,12 +174,12 @@
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
+
         .content-block:hover {
             transform: translateY(-10px);
             box-shadow: 0 30px 60px rgba(255, 107, 53, 0.3);
         }
-        
+
         .content-block::before {
             content: '';
             position: absolute;
@@ -189,7 +189,7 @@
             height: 5px;
             background: linear-gradient(90deg, rgba(29, 29, 31, 0.979), #222d3a05, #0772ff);
         }
-        
+
 
         .block-header {
             display: flex;
@@ -198,7 +198,7 @@
             margin-bottom: 30px;
             flex-wrap: wrap;
         }
-        
+
         .block-image {
             background: linear-gradient(135deg, #0e3d69, #0c5c66);
             border-radius: 20px;
@@ -214,12 +214,12 @@
             padding: 30px 60px;
             min-width: 200px;
         }
-        
+
         @keyframes iconPulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
         }
-        
+
         .block-content h3 {
             font-size: 2.5rem;
             font-weight: 700;
@@ -228,17 +228,17 @@
             text-transform: uppercase;
             letter-spacing: -0.01em;
         }
-        
+
         .block-content p {
             font-size: 1.2rem;
             color: #ccc;
             line-height: 1.6;
             margin-bottom: 25px;
         }
-        
+
         .cta-button {
             display: inline-block;
-            background: linear-gradient(135deg,#0e3d69, #0c5c66); 
+            background: linear-gradient(135deg,#0e3d69, #0c5c66);
             color: white;
             padding: 15px 35px;
             border-radius: 50px;
@@ -250,20 +250,20 @@
             transition: all 0.3s ease;
             box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
         }
-        
+
         .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 35px rgba(255, 107, 53, 0.5);
             background: linear-gradient(135deg, #f7931e, #ff4757);
         }
-        
+
         /* Social Links */
         .social-links {
             display: flex;
             gap: 20px;
             flex-wrap: wrap;
         }
-        
+
         .social-link {
             display: inline-block;
             background: linear-gradient(135deg, #0e3d69, #0c5c66);
@@ -277,13 +277,13 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        
+
         .social-link:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 35px rgba(255, 107, 53, 0.5);
             background: linear-gradient(135deg, #f7931e, #ff4757);
         }
-        
+
 
         /* Newsletter Section */
         .newsletter {
@@ -291,7 +291,7 @@
             clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
             padding-top: 150px;
         }
-        
+
 
         /* Campaign Section Styles */
         .campaign-content {
@@ -333,6 +333,167 @@
             margin-bottom: 0;
         }
 
+        /* ===== Newsletter Archive ===== */
+
+        .latest-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #f7931e, #ff4757);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 18px;
+        }
+
+        .latest-newsletter {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            margin-top: 10px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid #262626;
+        }
+
+        .latest-cover-wrap {
+            flex: 0 0 260px;
+            max-width: 260px;
+        }
+
+        .latest-cover-wrap .poster-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .latest-cover-fallback {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #0e3d69, #0c5c66);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: rgba(255,255,255,0.85);
+            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.3);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .latest-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .latest-info h4 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #35e7ffd5;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+        }
+
+        .latest-info .issue-date {
+            color: #888;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .archive-title {
+            margin-top: 50px;
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0.85;
+        }
+
+        .newsletter-archive {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .archive-card {
+            background: #181818;
+            border: 1px solid #262626;
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .archive-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(7, 114, 255, 0.25);
+            border-color: #0772ff;
+        }
+
+        .archive-cover-fallback {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #0e3d69, #0c5c66);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: rgba(255,255,255,0.85);
+        }
+
+        .archive-card img.archive-cover {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .archive-card h5 {
+            font-size: 1.05rem;
+            color: #fff;
+            line-height: 1.35;
+            min-height: 2.7em;
+        }
+
+        .archive-card .issue-date {
+            color: #888;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .archive-download {
+            display: inline-block;
+            text-align: center;
+            background: linear-gradient(135deg,#0e3d69, #0c5c66);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .archive-download:hover {
+            background: linear-gradient(135deg, #f7931e, #ff4757);
+            transform: translateY(-2px);
+        }
+
         /* Footer */
         footer {
             background: #111;
@@ -340,12 +501,12 @@
             text-align: center;
             border-top: 3px solid black
         }
-        
+
         .footer-content {
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         .footer-content h4 {
             color: #06cbfc;
             font-size: 1.5rem;
@@ -353,13 +514,13 @@
             text-transform: uppercase;
             font-weight: 700;
         }
-        
+
         .footer-content p {
             color: #ccc;
             margin-bottom: 10px;
             font-size: 1.1rem;
         }
-        
+
         .footer-content .designed-by {
             margin-top: 30px;
             padding-top: 20px;
@@ -367,7 +528,7 @@
             color: #888;
             font-style: italic;
         }
-            
+
             /* Responsive */
     @media (max-width: 768px) {
         .hero h1 {
@@ -375,92 +536,92 @@
             line-height: 1.1;
             margin-bottom: 15px;
         }
-        
+
         .hero .tagline {
             font-size: clamp(1rem, 4vw, 1.5rem);
             margin-bottom: 20px;
         }
-        
+
         .about {
             padding: 150px 20px 80px;
             margin-top: -10vh;
         }
-        
+
         .about h2 {
             font-size: clamp(2rem, 8vw, 3rem);
             margin-bottom: 20px;
         }
-        
+
         .about p {
             font-size: 1.1rem;
             line-height: 1.6;
         }
-        
+
         .block-header {
             flex-direction: column;
             text-align: center;
             gap: 20px;
         }
-        
+
         .block-image {
             padding: 20px 30px;
             font-size: 2rem;
             min-width: 150px;
         }
-        
+
         .block-content h3 {
             font-size: clamp(1.5rem, 6vw, 2rem);
             margin-bottom: 10px;
         }
-        
+
         .block-content p {
             font-size: 1rem;
             line-height: 1.5;
             margin-bottom: 20px;
         }
-        
+
         .social-links {
             justify-content: center;
             flex-direction: column;
             align-items: center;
             gap: 15px;
         }
-        
+
         .social-link {
             padding: 10px 20px;
             font-size: 0.9rem;
             width: 200px;
             text-align: center;
         }
-        
+
         .cta-button {
             padding: 12px 25px;
             font-size: 1rem;
         }
-        
+
         section {
             padding: 40px 15px;
         }
-        
+
         .content-block {
             padding: 30px 15px;
             margin: 20px 0;
         }
-        
+
         .quick-links-section {
             padding: 60px 15px;
         }
-        
+
         .quick-links-title {
             font-size: clamp(2rem, 8vw, 3rem);
             margin-bottom: 30px;
         }
-        
+
         .quick-links-grid {
             flex-direction: column;
             gap: 20px;
         }
-        
+
         .quick-link {
             font-size: 1rem;
             padding: 12px 25px;
@@ -481,6 +642,21 @@
         .campaign-info {
             text-align: center;
         }
+
+        .latest-newsletter {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .latest-cover-wrap {
+            flex: none;
+            max-width: 220px;
+        }
+
+        .newsletter-archive {
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        }
     }
 
     /* Extra small mobile devices */
@@ -489,57 +665,57 @@
             font-size: clamp(1.8rem, 10vw, 3rem);
             padding: 0 10px;
         }
-        
+
         .hero .tagline {
             font-size: clamp(0.9rem, 3.5vw, 1.2rem);
             padding: 0 10px;
         }
-        
+
         .hero-content {
             padding: 0 10px;
         }
-        
+
         .about {
             padding: 120px 15px 60px;
         }
-        
+
         .about h2 {
             font-size: clamp(1.8rem, 7vw, 2.5rem);
         }
-        
+
         .about p {
             font-size: 1rem;
         }
-        
+
         .block-image {
             padding: 15px 20px;
             font-size: 1.5rem;
             min-width: 120px;
         }
-        
+
         .block-content h3 {
             font-size: clamp(1.3rem, 5vw, 1.8rem);
         }
-        
+
         .block-content p {
             font-size: 0.95rem;
         }
-        
+
         .content-block {
             padding: 20px 10px;
             margin: 15px 0;
         }
-        
+
         section {
             padding: 30px 10px;
         }
-        
+
         .social-link, .quick-link {
             width: 180px;
             font-size: 0.9rem;
             padding: 10px 20px;
         }
-        
+
         .cta-button {
             padding: 10px 20px;
             font-size: 0.95rem;
@@ -552,6 +728,15 @@
         .campaign-info p {
             font-size: 0.95rem;
         }
+
+        .newsletter-archive {
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 15px;
+        }
+
+        .archive-card {
+            padding: 14px;
+        }
     }
 
     /* Galaxy Fold and very narrow screens */
@@ -561,55 +746,55 @@
             line-height: 1;
             word-break: break-word;
         }
-        
+
         .hero .tagline {
             font-size: 1rem;
             line-height: 1.3;
         }
-        
+
         .about h2 {
             font-size: 2rem;
             line-height: 1.1;
         }
-        
+
         .block-image {
             padding: 12px 15px;
             font-size: 1.3rem;
             min-width: 100px;
         }
-        
+
         .block-content h3 {
             font-size: 1.5rem;
             line-height: 1.2;
         }
-        
+
         .content-block {
             padding: 15px 8px;
         }
-        
+
         section {
             padding: 25px 8px;
         }
-        
+
         .social-link, .quick-link {
             width: 160px;
             font-size: 0.85rem;
             padding: 8px 15px;
         }
-        
+
         .quick-links-title {
             font-size: 1.8rem;
             line-height: 1.1;
         }
     }
-        
+
         /* Scroll animations */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s ease;
         }
-        
+
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
@@ -623,7 +808,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .quick-links-section::before {
             content: '';
             position: absolute;
@@ -633,12 +818,12 @@
             height: 5px;
             background: linear-gradient(90deg, rgba(29, 29, 31, 0.979), #222d3a05, #0772ff);
         }
-        
+
         .quick-links-container {
             max-width: 1000px;
             margin: 0 auto;
         }
-        
+
         .quick-links-title {
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 800;
@@ -647,7 +832,7 @@
             letter-spacing: -0.01em;
             color: white;
         }
-        
+
         .quick-links-grid {
             display: flex;
             justify-content: center;
@@ -655,7 +840,7 @@
             gap: 40px;
             flex-wrap: wrap;
         }
-         
+
         .quick-link {
             color: white;
             text-decoration: none;
@@ -663,30 +848,18 @@
             font-weight: 600;
             padding: 15px 30px;
             border-radius: 30px;
-            background: linear-gradient(135deg,#0e3d69, #0c5c66); 
+            background: linear-gradient(135deg,#0e3d69, #0c5c66);
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
             display: inline-block;
         }
-        
+
         .quick-link:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
             background: linear-gradient(135deg, #f7931e, #ff4757);
-        }
-
-        /* Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
     </style>
 </head>
@@ -773,9 +946,15 @@
         <div class="block-content">
             <h3>Newsletters</h3>
             <p>Access our Newsletters. Find content you won't find anywhere else! Feel free to download and never miss a mood.</p>
-            <a href="assets/Mood in society Newsletter issue 3 November.pdf" class="cta-button" download>Download Here</a>
         </div>
         </div>
+
+        <!-- Latest newsletter, filled in automatically by script below -->
+        <div id="latest-newsletter" class="latest-newsletter"></div>
+
+        <!-- Full archive, filled in automatically by script below -->
+        <h4 class="archive-title">Past Issues</h4>
+        <div id="newsletter-archive" class="newsletter-archive"></div>
     </div>
     </section>
 
@@ -790,7 +969,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Footer -->
     <footer>
         <div class="footer-content">
@@ -802,6 +981,92 @@
     </footer>
 
     <script>
+        // =====================================================
+        // NEWSLETTER ARCHIVE DATA
+        // Add a new newsletter by adding one object to this list.
+        // - issue: the issue number (used for sorting + fallback badge)
+        // - title: the newsletter's headline/topic
+        // - date:  "YYYY-MM-DD" (used for sorting + display)
+        // - pdf:   path to the downloadable PDF file
+        // - cover: path to a cover image (optional — leave as "" to
+        //          show an auto-generated placeholder instead)
+        // =====================================================
+        const newsletters = [
+
+            {
+                issue: 4,
+                title: "Coming Soon",
+                date: "2026-08-03",
+            },
+           
+            {
+                issue: 3,
+                title: "Mood in society Newsletter issue 3",
+                date: "2025-11-10",
+                pdf: "assets/Mood in society Newsletter issue 3.pdf",
+                cover: "images/picissue3.png"
+            },
+            {
+                issue: 2,
+                title: "Mood in society Newsletter issue 2",
+                date: "2025-08-15",
+                pdf: "assets/Mood in society Newsletter issue 2.pdf",
+                cover: "images/picissue2.png"
+            },
+            {
+                issue: 1,
+                title: "Mood in society Newsletter issue 1",
+                date: "2025-06-30",
+                pdf: "assets/Mood in society Newsletter issue 1.pdf",
+                cover: "images/picissue1.png"
+            }
+        ];
+
+        function formatIssueDate(dateStr) {
+            const d = new Date(dateStr + "T00:00:00");
+            return d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+        }
+
+        function renderNewsletters() {
+            const sorted = [...newsletters].sort((a, b) => new Date(b.date) - new Date(a.date));
+            const [latest, ...rest] = sorted;
+
+            const latestEl = document.getElementById('latest-newsletter');
+            if (latest) {
+                const coverHtml = latest.cover
+                    ? `<img src="${latest.cover}" alt="Issue ${latest.issue} cover" class="poster-image">`
+                    : `<div class="latest-cover-fallback">Issue ${latest.issue}</div>`;
+
+                latestEl.innerHTML = `
+                    <div class="latest-cover-wrap">${coverHtml}</div>
+                    <div class="latest-info">
+                        <span class="latest-badge">Latest Issue</span>
+                        <h4>Issue ${latest.issue}: ${latest.title}</h4>
+                        <span class="issue-date">${formatIssueDate(latest.date)}</span>
+                        <a href="${latest.pdf}" class="cta-button" download>Download Here</a>
+                    </div>
+                `;
+            }
+
+            const archiveEl = document.getElementById('newsletter-archive');
+            archiveEl.innerHTML = rest.map(item => {
+                const coverHtml = item.cover
+                    ? `<img src="${item.cover}" alt="Issue ${item.issue} cover" class="archive-cover">`
+                    : `<div class="archive-cover-fallback">Issue ${item.issue}</div>`;
+
+                return `
+                    <div class="archive-card">
+                        ${coverHtml}
+                        <h5>Issue ${item.issue}: ${item.title}</h5>
+                        <span class="issue-date">${formatIssueDate(item.date)}</span>
+                        <a href="${item.pdf}" class="archive-download" download>Download</a>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        renderNewsletters();
+
         // Scroll animation
         const observerOptions = {
             threshold: 0.1,
@@ -822,8 +1087,8 @@
 
         // Smooth scroll for scroll indicator
         document.querySelector('.scroll-indicator').addEventListener('click', () => {
-            document.querySelector('.about').scrollIntoView({ 
-                behavior: 'smooth' 
+            document.querySelector('.about').scrollIntoView({
+                behavior: 'smooth'
             });
         });
 
@@ -840,12 +1105,12 @@
                 z-index: 1;
                 animation: float 15s linear infinite;
             `;
-            
+
             particle.style.left = Math.random() * window.innerWidth + 'px';
             particle.style.top = window.innerHeight + 'px';
-            
+
             document.body.appendChild(particle);
-            
+
             setTimeout(() => {
                 particle.remove();
             }, 15000);
