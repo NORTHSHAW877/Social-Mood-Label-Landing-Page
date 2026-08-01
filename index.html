@@ -257,6 +257,12 @@
             background: linear-gradient(135deg, #f7931e, #ff4757);
         }
 
+        .cta-button.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+            box-shadow: none;
+        }
+
         /* Social Links */
         .social-links {
             display: flex;
@@ -442,7 +448,7 @@
 
         .archive-cover-fallback {
             width: 100%;
-            aspect-ratio: 4 / 3;
+            aspect-ratio: 3 / 4;
             border-radius: 10px;
             background: linear-gradient(135deg, #0e3d69, #0c5c66);
             display: flex;
@@ -455,8 +461,9 @@
 
         .archive-card img.archive-cover {
             width: 100%;
-            aspect-ratio: 4 / 3;
-            object-fit: cover;
+            aspect-ratio: 3 / 4;
+            object-fit: contain;
+            background: #0d0d0d;
             border-radius: 10px;
         }
 
@@ -492,6 +499,11 @@
         .archive-download:hover {
             background: linear-gradient(135deg, #f7931e, #ff4757);
             transform: translateY(-2px);
+        }
+
+        .archive-download.disabled {
+            opacity: 0.4;
+            pointer-events: none;
         }
 
         /* Footer */
@@ -987,18 +999,20 @@
         // - issue: the issue number (used for sorting + fallback badge)
         // - title: the newsletter's headline/topic
         // - date:  "YYYY-MM-DD" (used for sorting + display)
-        // - pdf:   path to the downloadable PDF file
-        // - cover: path to a cover image (optional — leave as "" to
-        //          show an auto-generated placeholder instead)
+        // - pdf:   path to the downloadable PDF file (leave out or "" if not ready yet)
+        // - cover: path to a cover image (leave out or "" to show an
+        //          auto-generated placeholder instead)
         // =====================================================
         const newsletters = [
 
             {
                 issue: 4,
-                title: "Coming Soon",
+                title: "Mood in society Newsletter issue 4",
                 date: "2026-08-03",
+                pdf: "assets/Mood in society Newsletter issue 4.pdf",
+                cover: "images/picissue4.png"
             },
-           
+
             {
                 issue: 3,
                 title: "Mood in society Newsletter issue 3",
@@ -1037,13 +1051,17 @@
                     ? `<img src="${latest.cover}" alt="Issue ${latest.issue} cover" class="poster-image">`
                     : `<div class="latest-cover-fallback">Issue ${latest.issue}</div>`;
 
+                const downloadHtml = latest.pdf
+                    ? `<a href="${latest.pdf}" class="cta-button" download>Download Here</a>`
+                    : `<span class="cta-button disabled">Coming Soon</span>`;
+
                 latestEl.innerHTML = `
                     <div class="latest-cover-wrap">${coverHtml}</div>
                     <div class="latest-info">
                         <span class="latest-badge">Latest Issue</span>
                         <h4>Issue ${latest.issue}: ${latest.title}</h4>
                         <span class="issue-date">${formatIssueDate(latest.date)}</span>
-                        <a href="${latest.pdf}" class="cta-button" download>Download Here</a>
+                        ${downloadHtml}
                     </div>
                 `;
             }
@@ -1054,12 +1072,16 @@
                     ? `<img src="${item.cover}" alt="Issue ${item.issue} cover" class="archive-cover">`
                     : `<div class="archive-cover-fallback">Issue ${item.issue}</div>`;
 
+                const downloadHtml = item.pdf
+                    ? `<a href="${item.pdf}" class="archive-download" download>Download</a>`
+                    : `<span class="archive-download disabled">Coming Soon</span>`;
+
                 return `
                     <div class="archive-card">
                         ${coverHtml}
                         <h5>Issue ${item.issue}: ${item.title}</h5>
                         <span class="issue-date">${formatIssueDate(item.date)}</span>
-                        <a href="${item.pdf}" class="archive-download" download>Download</a>
+                        ${downloadHtml}
                     </div>
                 `;
             }).join('');
