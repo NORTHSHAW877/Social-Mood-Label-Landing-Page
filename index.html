@@ -12,7 +12,7 @@
     <meta name="author" content="Social Mood Label">
     <meta name="robots" content="index, follow">
 
-    <!-- CANONICAL URL - CHANGE TO YOUR ACTUAL DOMAIN -->
+    <!-- CANONICAL URL -->
     <link rel="canonical" href="https://socialmoodlabel.netlify.app/">
 
     <!-- OPEN GRAPH / FACEBOOK / LINKEDIN -->
@@ -28,283 +28,200 @@
     <meta name="twitter:title" content="Social Mood Label - The Mood in Society">
     <meta name="twitter:description" content="Exploring youth culture, gender, identity, and the impact of digital spaces on society and wellbeing.">
     <meta name="twitter:image" content="https://socialmoodlabel.netlify.app/images/smlpreview.png">
+
     <style>
+        :root {
+            --cream: #f4e8cc;
+            --cream-2: #efe0bd;
+            --ink: #121212;
+            --teal: #0d4d50;
+            --teal-deep: #093837;
+            --teal-mid: #156669;
+            --yellow: #f0c94a;
+            --gray: #6f6a5c;
+            --line: #d9c9a0;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
-            background: #0a0a0a;
-            color: #ffffff;
+            background: var(--cream);
+            color: var(--ink);
         }
 
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(135deg, #18356b, #23b1f3, #043b68, #4787c2);
-            background-size: 400% 400%;
-            animation: gradientShift 8s ease infinite;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+        a {
+            color: inherit;
         }
 
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(196, 69, 105, 0.3) 0%, transparent 50%);
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 0.8; }
-            50% { opacity: 1; }
-        }
-
-        .hero-content {
-            z-index: 2;
-            max-width: 800px;
-            padding: 0 20px;
-        }
-
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 8rem);
-            font-weight: 900;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: -0.02em;
-            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            animation: titleFloat 3s ease-in-out infinite;
-        }
-
-        @keyframes titleFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .hero .tagline {
-            font-size: clamp(1.2rem, 3vw, 2rem);
-            margin-bottom: 30px;
-            font-weight: 300;
-            opacity: 0.95;
-            animation: fadeInUp 1s ease 0.5s both;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-10px); }
-            60% { transform: translateX(-50%) translateY(-5px); }
-        }
-
-        /* Section Styles */
-        section {
-            padding: 100px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .about {
-            background: linear-gradient(135deg, #1377a5 0%, #0d8b8b 100%);
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-            margin-top: -15vh;
-            padding-top: 200px;
-        }
-
-        .about h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: -0.01em;
-        }
-
-        .about p {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            opacity: 0.9;
-            max-width: 800px;
-        }
-
-        /* Content Blocks */
-        .content-block {
-
-            padding: 80px 40px;
-            margin: 60px 0;
-            border-radius: 20px;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .content-block:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(255, 107, 53, 0.3);
-        }
-
-        .content-block::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, rgba(29, 29, 31, 0.979), #222d3a05, #0772ff);
-        }
-
-
-        .block-header {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-
-        .block-image {
-            background: linear-gradient(135deg, #0e3d69, #0c5c66);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            font-weight: bold;
-            color: white;
-            text-transform: uppercase;
-            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.4);
-            animation: iconPulse 3s ease-in-out infinite;
-            padding: 30px 60px;
-            min-width: 200px;
-        }
-
-        @keyframes iconPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .block-content h3 {
-            font-size: 2.5rem;
+        .eyebrow {
+            display: inline-block;
+            font-size: 0.8rem;
             font-weight: 700;
-            color: #35e7ffd5;
-            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gray);
+        }
+
+        .eyebrow.on-teal {
+            color: rgba(244, 232, 204, 0.65);
+        }
+
+        /* ============ HERO ============ */
+        .hero {
+            background: var(--cream);
+            padding: 50px 60px 90px;
+            position: relative;
+        }
+
+        .hero-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 70px;
+        }
+
+        .logo-mark img {
+            width: 78px;
+            height: 78px;
+            display: block;
+            border-radius: 50%;
+        }
+
+        .hero-meta {
+            text-align: right;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gray);
+            line-height: 1.9;
+        }
+
+        .hero-title {
+            font-size: clamp(3.2rem, 9vw, 7.2rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 0.98;
+            letter-spacing: -0.02em;
+            color: var(--ink);
+        }
+
+        .hero-title .label-word {
+            display: block;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-style: italic;
+            font-weight: 400;
+            text-transform: none;
+            color: var(--teal);
+            font-size: 0.62em;
+            letter-spacing: 0;
+            margin-top: 4px;
+        }
+
+        .hero-rule {
+            width: min(680px, 70%);
+            height: 6px;
+            background: var(--yellow);
+            margin: 28px 0 34px;
+        }
+
+        .hero-tagline {
+            max-width: 520px;
+            font-size: 1.15rem;
+            color: #3a3a3a;
+        }
+
+        /* ============ WHO WE ARE ============ */
+        .who-we-are {
+            background: var(--teal);
+            color: var(--cream);
+            padding: 90px 60px;
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .who-we-are .eyebrow {
+            margin-bottom: 22px;
+        }
+
+        .who-quote {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+            line-height: 1.35;
+            color: var(--cream);
+        }
+
+        .who-statement {
+            font-size: clamp(1.7rem, 3.4vw, 2.7rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+
+        /* ============ SECTION SHELL ============ */
+        section {
+            padding: 90px 60px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: 2px solid var(--ink);
+            padding-bottom: 22px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .section-head h2 {
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            font-weight: 900;
             text-transform: uppercase;
             letter-spacing: -0.01em;
         }
 
-        .block-content p {
-            font-size: 1.2rem;
-            color: #ccc;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg,#0e3d69, #0c5c66);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
+        .section-head .side-note {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+            color: var(--gray);
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.5);
-            background: linear-gradient(135deg, #f7931e, #ff4757);
-        }
-
-        .cta-button.disabled {
-            opacity: 0.5;
-            pointer-events: none;
-            box-shadow: none;
-        }
-
-        /* Social Links */
-        .social-links {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .social-link {
-            display: inline-block;
-            background: linear-gradient(135deg, #0e3d69, #0c5c66);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
+        /* ============ TRENDING / CAMPAIGN ============ */
+        .campaign-tag {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            color: var(--teal);
+            margin-bottom: 14px;
+            display: block;
         }
 
-        .social-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.5);
-            background: linear-gradient(135deg, #f7931e, #ff4757);
-        }
-
-
-        /* Newsletter Section */
-        .newsletter {
-            background:#111;
-            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
-            padding-top: 150px;
-        }
-
-
-        /* Campaign Section Styles */
         .campaign-content {
             display: flex;
-            gap: 30px;
+            gap: 50px;
             align-items: flex-start;
-            margin-top: 20px;
         }
 
         .campaign-poster {
@@ -315,57 +232,221 @@
         .poster-image {
             width: 100%;
             height: auto;
-            border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .poster-image:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.4);
+            border-radius: 4px;
+            display: block;
+            border: 1px solid var(--line);
         }
 
         .campaign-info {
             flex: 1;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 18px;
+        }
+
+        .campaign-info h3 {
+            font-size: clamp(1.6rem, 3vw, 2.3rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            line-height: 1.15;
         }
 
         .campaign-info p {
-            font-size: 1.2rem;
-            color: #ccc;
-            line-height: 1.6;
-            margin-bottom: 0;
+            font-size: 1.08rem;
+            color: #3a3a3a;
+            line-height: 1.65;
         }
 
-        /* ===== Newsletter Archive ===== */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--teal);
+            color: var(--cream);
+            padding: 14px 30px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            width: fit-content;
+            transition: background 0.25s ease, color 0.25s ease;
+        }
 
-        .latest-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #f7931e, #ff4757);
-            color: white;
-            font-size: 0.75rem;
+        .cta-button:hover {
+            background: var(--yellow);
+            color: var(--ink);
+        }
+
+        .cta-button.disabled {
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        /* ============ LIST-STYLE SECTIONS (BLOG) ============ */
+        .list-row {
+            display: grid;
+            grid-template-columns: 90px 1fr auto;
+            gap: 30px;
+            align-items: start;
+            padding: 28px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .list-row:first-of-type {
+            border-top: 1px solid var(--line);
+        }
+
+        .list-date {
+            font-size: 0.78rem;
             font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
+            color: var(--gray);
+            padding-top: 4px;
+        }
+
+        .list-body h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .list-body p {
+            color: #3a3a3a;
+            font-size: 1rem;
+            max-width: 640px;
+        }
+
+        .list-link {
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--teal);
+            text-decoration: none;
+            white-space: nowrap;
+            padding-top: 4px;
+        }
+
+        .list-link:hover {
+            color: var(--ink);
+        }
+
+        /* ============ CONVERSATION TOOLS ============ */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .tool-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tool-image-wrap {
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            aspect-ratio: 4 / 5;
+            margin-bottom: 18px;
+            border: 1px solid var(--line);
+            background: var(--cream-2);
+        }
+
+        .tool-image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .tool-status {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: var(--yellow);
+            color: var(--ink);
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 999px;
+        }
+
+        .tool-card h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+            margin-bottom: 8px;
+        }
+
+        .tool-card p {
+            font-size: 0.95rem;
+            color: #3a3a3a;
+            line-height: 1.55;
+        }
+
+        /* ============ SOCIALS ============ */
+        .social-links {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-block;
+            border: 2px solid var(--ink);
+            color: var(--ink);
+            padding: 14px 32px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.25s ease;
+        }
+
+        .social-link:hover {
+            background: var(--ink);
+            color: var(--cream);
+        }
+
+        /* ============ NEWSLETTER ============ */
+        .newsletter {
+            background: var(--cream-2);
+        }
+
+        .latest-badge {
+            display: inline-block;
+            background: var(--yellow);
+            color: var(--ink);
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             padding: 6px 16px;
-            border-radius: 20px;
+            border-radius: 999px;
             margin-bottom: 18px;
         }
 
         .latest-newsletter {
             display: flex;
-            gap: 30px;
+            gap: 40px;
             align-items: flex-start;
-            margin-top: 10px;
             padding-bottom: 60px;
-            border-bottom: 1px solid #262626;
+            border-bottom: 1px solid var(--line);
+            margin-bottom: 50px;
         }
 
         .latest-cover-wrap {
-            flex: 0 0 260px;
-            max-width: 260px;
+            flex: 0 0 240px;
+            max-width: 240px;
         }
 
         .latest-cover-wrap .poster-image {
@@ -377,15 +458,14 @@
         .latest-cover-fallback {
             width: 100%;
             aspect-ratio: 3 / 4;
-            border-radius: 15px;
-            background: linear-gradient(135deg, #0e3d69, #0c5c66);
+            border-radius: 4px;
+            background: var(--teal);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 800;
-            color: rgba(255,255,255,0.85);
-            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.3);
+            color: var(--cream);
             text-align: center;
             padding: 20px;
         }
@@ -394,111 +474,110 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 12px;
         }
 
         .latest-info h4 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #35e7ffd5;
+            font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: -0.01em;
         }
 
         .latest-info .issue-date {
-            color: #888;
-            font-size: 0.95rem;
+            color: var(--gray);
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            font-weight: 700;
         }
 
         .archive-title {
-            margin-top: 50px;
-            margin-bottom: 25px;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #fff;
+            margin-bottom: 26px;
+            font-size: 1.1rem;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            opacity: 0.85;
+            color: var(--gray);
         }
 
         .newsletter-archive {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 24px;
         }
 
         .archive-card {
-            background: #181818;
-            border: 1px solid #262626;
-            border-radius: 15px;
-            padding: 20px;
+            background: var(--cream);
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            padding: 18px;
             display: flex;
             flex-direction: column;
             gap: 12px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            transition: border-color 0.25s ease, transform 0.25s ease;
         }
 
         .archive-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(7, 114, 255, 0.25);
-            border-color: #0772ff;
+            border-color: var(--teal);
+            transform: translateY(-4px);
         }
 
         .archive-cover-fallback {
             width: 100%;
             aspect-ratio: 3 / 4;
-            border-radius: 10px;
-            background: linear-gradient(135deg, #0e3d69, #0c5c66);
+            border-radius: 3px;
+            background: var(--teal);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 800;
-            color: rgba(255,255,255,0.85);
+            color: var(--cream);
         }
 
         .archive-card img.archive-cover {
             width: 100%;
             aspect-ratio: 3 / 4;
             object-fit: contain;
-            background: #0d0d0d;
-            border-radius: 10px;
+            background: #ffffff;
+            border-radius: 3px;
+            border: 1px solid var(--line);
         }
 
         .archive-card h5 {
-            font-size: 1.05rem;
-            color: #fff;
+            font-size: 1rem;
+            font-weight: 700;
             line-height: 1.35;
             min-height: 2.7em;
         }
 
         .archive-card .issue-date {
-            color: #888;
-            font-size: 0.8rem;
+            color: var(--gray);
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            font-weight: 700;
         }
 
         .archive-download {
             display: inline-block;
             text-align: center;
-            background: linear-gradient(135deg,#0e3d69, #0c5c66);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 50px;
+            border: 2px solid var(--ink);
+            color: var(--ink);
+            padding: 9px 18px;
+            border-radius: 999px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.85rem;
+            font-weight: 700;
+            font-size: 0.78rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
         }
 
         .archive-download:hover {
-            background: linear-gradient(135deg, #f7931e, #ff4757);
-            transform: translateY(-2px);
+            background: var(--ink);
+            color: var(--cream);
         }
 
         .archive-download.disabled {
@@ -506,12 +585,55 @@
             pointer-events: none;
         }
 
-        /* Footer */
-        footer {
-            background: #111;
-            padding: 60px 20px 30px;
+        /* ============ QUICK LINKS ============ */
+        .quick-links-section {
+            background: var(--teal);
+            padding: 90px 60px;
             text-align: center;
-            border-top: 3px solid black
+        }
+
+        .quick-links-title {
+            font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+            font-weight: 900;
+            margin-bottom: 44px;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+            color: var(--cream);
+        }
+
+        .quick-links-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .quick-link {
+            color: var(--teal);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 14px 30px;
+            border-radius: 999px;
+            background: var(--yellow);
+            transition: all 0.25s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-block;
+        }
+
+        .quick-link:hover {
+            background: var(--cream);
+            color: var(--teal);
+        }
+
+        /* ============ FOOTER ============ */
+        footer {
+            background: var(--cream);
+            padding: 70px 20px 34px;
+            text-align: center;
+            border-top: 2px solid var(--ink);
         }
 
         .footer-content {
@@ -519,292 +641,43 @@
             margin: 0 auto;
         }
 
-        .footer-content h4 {
-            color: #06cbfc;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+        .footer-content h2 {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 900;
             text-transform: uppercase;
-            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 22px;
+        }
+
+        .footer-content h4 {
+            color: var(--teal);
+            font-size: 1rem;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 1px;
         }
 
         .footer-content p {
-            color: #ccc;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
+            color: #3a3a3a;
+            margin-bottom: 8px;
+            font-size: 1rem;
         }
 
         .footer-content .designed-by {
             margin-top: 30px;
             padding-top: 20px;
-            border-top: 1px solid #333;
-            color: #888;
+            border-top: 1px solid var(--line);
+            color: var(--gray);
             font-style: italic;
+            font-family: Georgia, 'Times New Roman', serif;
         }
 
-            /* Responsive */
-    @media (max-width: 768px) {
-        .hero h1 {
-            font-size: clamp(2rem, 12vw, 4rem);
-            line-height: 1.1;
-            margin-bottom: 15px;
-        }
-
-        .hero .tagline {
-            font-size: clamp(1rem, 4vw, 1.5rem);
-            margin-bottom: 20px;
-        }
-
-        .about {
-            padding: 150px 20px 80px;
-            margin-top: -10vh;
-        }
-
-        .about h2 {
-            font-size: clamp(2rem, 8vw, 3rem);
-            margin-bottom: 20px;
-        }
-
-        .about p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-        .block-header {
-            flex-direction: column;
-            text-align: center;
-            gap: 20px;
-        }
-
-        .block-image {
-            padding: 20px 30px;
-            font-size: 2rem;
-            min-width: 150px;
-        }
-
-        .block-content h3 {
-            font-size: clamp(1.5rem, 6vw, 2rem);
-            margin-bottom: 10px;
-        }
-
-        .block-content p {
-            font-size: 1rem;
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
-
-        .social-links {
-            justify-content: center;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .social-link {
-            padding: 10px 20px;
-            font-size: 0.9rem;
-            width: 200px;
-            text-align: center;
-        }
-
-        .cta-button {
-            padding: 12px 25px;
-            font-size: 1rem;
-        }
-
-        section {
-            padding: 40px 15px;
-        }
-
-        .content-block {
-            padding: 30px 15px;
-            margin: 20px 0;
-        }
-
-        .quick-links-section {
-            padding: 60px 15px;
-        }
-
-        .quick-links-title {
-            font-size: clamp(2rem, 8vw, 3rem);
-            margin-bottom: 30px;
-        }
-
-        .quick-links-grid {
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .quick-link {
-            font-size: 1rem;
-            padding: 12px 25px;
-            width: 200px;
-        }
-
-        .campaign-content {
-            flex-direction: column;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .campaign-poster {
-            flex: none;
-            max-width: 250px;
-        }
-
-        .campaign-info {
-            text-align: center;
-        }
-
-        .latest-newsletter {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .latest-cover-wrap {
-            flex: none;
-            max-width: 220px;
-        }
-
-        .newsletter-archive {
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-        }
-    }
-
-    /* Extra small mobile devices */
-    @media (max-width: 480px) {
-        .hero h1 {
-            font-size: clamp(1.8rem, 10vw, 3rem);
-            padding: 0 10px;
-        }
-
-        .hero .tagline {
-            font-size: clamp(0.9rem, 3.5vw, 1.2rem);
-            padding: 0 10px;
-        }
-
-        .hero-content {
-            padding: 0 10px;
-        }
-
-        .about {
-            padding: 120px 15px 60px;
-        }
-
-        .about h2 {
-            font-size: clamp(1.8rem, 7vw, 2.5rem);
-        }
-
-        .about p {
-            font-size: 1rem;
-        }
-
-        .block-image {
-            padding: 15px 20px;
-            font-size: 1.5rem;
-            min-width: 120px;
-        }
-
-        .block-content h3 {
-            font-size: clamp(1.3rem, 5vw, 1.8rem);
-        }
-
-        .block-content p {
-            font-size: 0.95rem;
-        }
-
-        .content-block {
-            padding: 20px 10px;
-            margin: 15px 0;
-        }
-
-        section {
-            padding: 30px 10px;
-        }
-
-        .social-link, .quick-link {
-            width: 180px;
-            font-size: 0.9rem;
-            padding: 10px 20px;
-        }
-
-        .cta-button {
-            padding: 10px 20px;
-            font-size: 0.95rem;
-        }
-
-        .campaign-poster {
-            max-width: 200px;
-        }
-
-        .campaign-info p {
-            font-size: 0.95rem;
-        }
-
-        .newsletter-archive {
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 15px;
-        }
-
-        .archive-card {
-            padding: 14px;
-        }
-    }
-
-    /* Galaxy Fold and very narrow screens */
-    @media (max-width: 320px) {
-        .hero h1 {
-            font-size: 2.2rem;
-            line-height: 1;
-            word-break: break-word;
-        }
-
-        .hero .tagline {
-            font-size: 1rem;
-            line-height: 1.3;
-        }
-
-        .about h2 {
-            font-size: 2rem;
-            line-height: 1.1;
-        }
-
-        .block-image {
-            padding: 12px 15px;
-            font-size: 1.3rem;
-            min-width: 100px;
-        }
-
-        .block-content h3 {
-            font-size: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .content-block {
-            padding: 15px 8px;
-        }
-
-        section {
-            padding: 25px 8px;
-        }
-
-        .social-link, .quick-link {
-            width: 160px;
-            font-size: 0.85rem;
-            padding: 8px 15px;
-        }
-
-        .quick-links-title {
-            font-size: 1.8rem;
-            line-height: 1.1;
-        }
-    }
-
-        /* Scroll animations */
+        /* ============ SCROLL ANIMATION ============ */
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
         }
 
         .fade-in.visible {
@@ -812,178 +685,246 @@
             transform: translateY(0);
         }
 
-             /* Quick Links Section */
-        .quick-links-section {
-            background: linear-gradient(135deg, #0e3d69, #0c5c66);
-            padding: 80px 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 900px) {
+            .who-we-are {
+                grid-template-columns: 1fr;
+                gap: 34px;
+                padding: 70px 30px;
+            }
+
+            .hero {
+                padding: 36px 24px 60px;
+            }
+
+            .hero-top {
+                margin-bottom: 44px;
+            }
+
+            section {
+                padding: 60px 24px;
+            }
+
+            .campaign-content {
+                flex-direction: column;
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .campaign-poster {
+                max-width: 220px;
+            }
+
+            .list-row {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .list-link {
+                white-space: normal;
+            }
+
+            .latest-newsletter {
+                flex-direction: column;
+            }
+
+            .latest-cover-wrap {
+                max-width: 200px;
+            }
+
+            .quick-links-section {
+                padding: 60px 24px;
+            }
         }
 
-        .quick-links-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, rgba(29, 29, 31, 0.979), #222d3a05, #0772ff);
+        @media (max-width: 480px) {
+            .hero-top {
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            .hero-meta {
+                text-align: left;
+            }
+
+            .logo-mark img {
+                width: 58px;
+                height: 58px;
+            }
+
+            .section-head {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
-        .quick-links-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .quick-links-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            margin-bottom: 50px;
-            text-transform: uppercase;
-            letter-spacing: -0.01em;
-            color: white;
-        }
-
-        .quick-links-grid {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        .quick-link {
-            color: white;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: 600;
-            padding: 15px 30px;
-            border-radius: 30px;
-            background: linear-gradient(135deg,#0e3d69, #0c5c66);
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
-            display: inline-block;
-        }
-
-        .quick-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
-            background: linear-gradient(135deg, #f7931e, #ff4757);
+        @media (prefers-reduced-motion: reduce) {
+            .fade-in {
+                transition: none;
+            }
         }
     </style>
 </head>
 <body>
+
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Social Mood Label</h1>
-            <p class="tagline">The Mood in Society</p>
+    <section class="hero" style="max-width:none;">
+        <div class="hero-top">
+            <div class="logo-mark">
+                <img src="images/S.png" alt="Social Mood Label logo">
+            </div>
+            <div class="hero-meta">
+                <div>Est. 2021</div>
+                <div> SML </div>
+            </div>
         </div>
-        <div class="scroll-indicator">
-            <div style="color: white; font-size: 2rem;">↓</div>
-        </div>
+        <h1 class="hero-title">Social Mood<span class="label-word">Label</span></h1>
+        <div class="hero-rule"></div>
+        <p class="hero-tagline">The mood in society.</p>
     </section>
 
-    <!-- About Section -->
-    <section class="about fade-in">
-        <h2>WHO WE ARE</h2>
-        <p>Tracking the mood of society ˙ᵕ˙ From recreation and wellbeing to youth, gender, and digital truths.</p>
+    <!-- Who We Are -->
+    <section class="who-we-are fade-in" style="max-width:none;">
+        <div>
+            <span class="eyebrow on-teal"> Who We Are </span>
+            <p class="who-quote">Everyday lived experiences, moods, thoughts, connections.</p>
+        </div>
+        <p class="who-statement">From recreation & social spaces, to gender & digital culture, we explore the stuff shaping everyday life.</p>
     </section>
 
-    <!-- Current Campaign Section -->
-    <section>
-        <div class="content-block fade-in">
-            <div class="block-header">
-                <div class="block-image">#Trending</div>
-                <div class="block-content">
-                    <h3>MOOD 52.RECREATION ON THE MENU 🥙🧁🍵 </h3>
-                    <div class="campaign-content">
-                        <div class="campaign-poster">
-                            <img src="images/smlimagereconthemenu.webp" alt="Current Campaign Poster" class="poster-image">
-                        </div>
-                        <div class="campaign-info">
-                            <p>This month, Social Mood Label explores food as a recreational tool. Food is more than something we eat. From trendy cafés and restaurants to cultural food experiences, it has become part of how we socialise, express identity, and create belonging.</p>
-                            <p>But as food becomes part of our recreational lives, an important question emerges: what happens when connection comes with a price tag?</p>
-                            <p>This Mood explores food, recreation, youth, gender, identity and inequality, asking who gets to participate in the spaces where social connection happens.</p>
-                            <p>👉 Read the full article and follow Social Mood Label across our social media platforms for more conversations on recreation, youth development, gender and the issues shaping South African society.</p>
-                            <a href="https://socialmoodlabel.wordpress.com/2026/08/11/mood-52-recreation-on-the-menu/" class="cta-button">Click to Read⚽</a>
-                        </div>
-                    </div>
-                </div>
+    <!-- Current Campaign / Trending Section -->
+    <section class="fade-in">
+        <div class="section-head">
+            <h2>Trending</h2>
+            <span class="side-note">This month in the mood</span>
+        </div>
+        <span class="campaign-tag">Mood 53 · PERFORMING CARE: CHORES, GENDER & SCROLLING </span>
+        <div class="campaign-content">
+            <div class="campaign-poster">
+                <img src="images/mood 53 sml.png" alt="Current Campaign Poster" class="poster-image">
+            </div>
+            <div class="campaign-info">
+                <h3>Chores, Gender & Scrolling 🧹🧽🧺🏠</h3>
+                <p>A man makes his kid's lunch and the internet goes wild.</p>
+                <p>A woman's been doing it every day for years, and nobody's filming.</p>
+                <p>This Mood is about second shifts, gender roles dressed up as trends, and the gap between doing the work and performing it for an audience.</p>
+                <p>Spoiler: TikTok didn't fix anything, it just gave it better lighting.</p>
+                <p>Read the full article and follow Social Mood Label to join the conversation.</p>
+                <a href="https://socialmoodlabel.wordpress.com/2026/09/09/mood-53-performing-care-chores-gender-scrolling/" class="cta-button">Read the Mood →</a>
             </div>
         </div>
     </section>
 
     <!-- Blog Section -->
-    <section>
-    <div class="content-block fade-in">
-        <div class="block-header">
-        <div class="block-image">Blog</div>
-        <div class="block-content">
-            <h3>Research Articles and Campaigns</h3>
-            <p>Our blog explores the mood in society. Spotlighting social issues that are sometimes overlooked but deeply shape our attitudes, behaviour and identity.</p>
-            <a href="https://socialmoodlabel.wordpress.com/blog/" class="cta-button">Read Our Blog</a>
+    <section class="fade-in">
+        <div class="section-head">
+            <h2>Blog</h2>
+            <span class="side-note">Field notes</span>
         </div>
+        <div class="list-row">
+            <span class="list-date"></span>
+            <div class="list-body">
+                <h3>Research Articles and Campaigns</h3>
+                <p>Our blog explores the mood in society. Spotlighting social issues that are sometimes overlooked but deeply shape our attitudes, behaviour and identity.</p>
+            </div>
+            <a href="https://socialmoodlabel.wordpress.com/blog/" class="list-link">Read →</a>
         </div>
-    </div>
     </section>
 
-     <!-- SOCIALS Section -->
-    <section>
-    <div class="content-block fade-in">
-        <div class="block-header">
-        <div class="block-image">Socials</div>
-        <div class="block-content">
-            <h3>Connect & Engage</h3>
-            <p>Join the conversation across all platforms. Follow our journey and stay connected with our community.</p>
-            <div class="social-links">
-                <a href="https://www.instagram.com/socialmoodlabel/" class="social-link">Instagram</a>
-                <a href="https://www.tiktok.com/@socialmoodlabel" class="social-link">TikTok</a>
+    <!-- Conversation Tools Section -->
+    <section class="fade-in">
+        <div class="section-head">
+            <h2>Conversation Tools</h2>
+            <span class="side-note">Vol. 01</span>
+        </div>
+        <p style="max-width:600px;color:#3a3a3a;font-size:1.08rem;margin-bottom:40px;">Objects made to start conversations, not end them. A small line of tools that carry the mood off the page and into real rooms.</p>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <div class="tool-image-wrap">
+                    <span class="tool-status">Coming Soon</span>
+                    <img src="images/smlcube.webp" alt="Social Mood Cube">
+                </div>
+                <h3>Social Mood Cube™</h3>
+                <p>One roll. One conversation. A different perspective; six themes, one dice, made for real discussion.</p>
+            </div>
+            <div class="tool-card">
+                <div class="tool-image-wrap">
+                    <span class="tool-status">Coming Soon</span>
+                    <img src="images/socialmoodlabelnotebooks.webp" alt="Social Mood Label notebooks">
+                </div>
+                <h3>Field Notebooks</h3>
+                <p>Research. Stories.Thoughts. Change. For jotting down your mood and theirs.</p>
+            </div>
+            <div class="tool-card">
+                <div class="tool-image-wrap">
+                    <span class="tool-status">Coming Soon</span>
+                    <img src="images/socialmoodlabell coffee cups.png" alt="Social Mood Label coffee cup">
+                </div>
+                <h3>The Mood, To Go</h3>
+                <p>A coffee cup to do away with awkwardness.</p>
+            </div>
+            <div class="tool-card">
+                <div class="tool-image-wrap">
+                    <span class="tool-status">Coming Soon</span>
+                    <img src="images/tshirt.webp" alt="Social Mood Label t-shirt">
+                </div>
+                <h3>Wear the Mood</h3>
+                <p>A long sleeve tee, make it your part of your #ootd, carry the label off the page and onto the street.</p>
             </div>
         </div>
+    </section>
+
+    <!-- Socials Section -->
+    <section class="fade-in">
+        <div class="section-head">
+            <h2>Socials</h2>
+            <span class="side-note">Connect &amp; engage</span>
         </div>
-    </div>
+        <p style="max-width:560px;color:#3a3a3a;font-size:1.08rem;margin-bottom:28px;">Join the conversation across all platforms. Follow our journey and stay connected with our community.</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/socialmoodlabel/" class="social-link">Instagram</a>
+            <a href="https://www.tiktok.com/@socialmoodlabel" class="social-link">TikTok</a>
+        </div>
     </section>
 
     <!-- Newsletter Section -->
-    <section class="newsletter">
-    <div class="content-block fade-in">
-        <div class="block-header">
-        <div class="block-image">News</div>
-        <div class="block-content">
-            <h3>Newsletters</h3>
-            <p>Access our Newsletters. Find content you won't find anywhere else! Feel free to download and never miss a mood.</p>
-        </div>
-        </div>
+    <section class="newsletter fade-in" style="max-width:none;">
+        <div style="max-width:1280px;margin:0 auto;">
+            <div class="section-head">
+                <h2>Newsletters</h2>
+                <span class="side-note">Never miss a mood</span>
+            </div>
+            <p style="max-width:600px;color:#3a3a3a;font-size:1.08rem;margin-bottom:40px;">Access our Newsletters. Find content you won't find anywhere else! Feel free to download and never miss a mood.</p>
 
-        <!-- Latest newsletter, filled in automatically by script below -->
-        <div id="latest-newsletter" class="latest-newsletter"></div>
+            <!-- Latest newsletter, filled in automatically by script below -->
+            <div id="latest-newsletter" class="latest-newsletter"></div>
 
-        <!-- Full archive, filled in automatically by script below -->
-        <h4 class="archive-title">Past Issues</h4>
-        <div id="newsletter-archive" class="newsletter-archive"></div>
-    </div>
+            <!-- Full archive, filled in automatically by script below -->
+            <h4 class="archive-title">Past Issues</h4>
+            <div id="newsletter-archive" class="newsletter-archive"></div>
+        </div>
     </section>
 
-     <!-- Quick Links Section -->
-    <section class="quick-links-section fade-in">
-        <div class="quick-links-container">
-            <h2 class="quick-links-title">Quick Links</h2>
-            <div class="quick-links-grid">
-                <a href="https://socialmoodlabel.wordpress.com/" class="quick-link">Blog</a>
-                <a href="https://www.instagram.com/socialmoodlabel/" class="quick-link">Instagram</a>
-                <a href="https://www.tiktok.com/@socialmoodlabel" class="quick-link">TikTok</a>
-            </div>
+    <!-- Quick Links Section -->
+    <section class="quick-links-section fade-in" style="max-width:none;">
+        <h2 class="quick-links-title">Quick Links</h2>
+        <div class="quick-links-grid">
+            <a href="https://socialmoodlabel.wordpress.com/" class="quick-link">Blog</a>
+            <a href="https://www.instagram.com/socialmoodlabel/" class="quick-link">Instagram</a>
+            <a href="https://www.tiktok.com/@socialmoodlabel" class="quick-link">TikTok</a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <h2>STAY IN THE MOOD</h2>
+            <h2>Stay in the Mood</h2>
             <h4>Get In Touch</h4>
             <p>Email: socialmoodlabel@gmail.com</p>
             <p class="designed-by">Designed and Maintained by Pumla P N</p>
@@ -1002,7 +943,6 @@
         //          auto-generated placeholder instead)
         // =====================================================
         const newsletters = [
-
             {
                 issue: 4,
                 title: "Mood in society Newsletter issue 4",
@@ -1010,7 +950,6 @@
                 pdf: "assets/Mood in society Newsletter issue 4.pdf",
                 cover: "images/picissue4.png"
             },
-
             {
                 issue: 3,
                 title: "Mood in society Newsletter issue 3",
@@ -1087,7 +1026,7 @@
 
         renderNewsletters();
 
-        // Scroll animation
+        // Scroll reveal animation
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1104,62 +1043,6 @@
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
-
-        // Smooth scroll for scroll indicator
-        document.querySelector('.scroll-indicator').addEventListener('click', () => {
-            document.querySelector('.about').scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-
-        // Add dynamic background particles effect
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.style.cssText = `
-                position: fixed;
-                width: 4px;
-                height: 4px;
-                background: rgba(255, 107, 53, 0.6);
-                border-radius: 50%;
-                pointer-events: none;
-                z-index: 1;
-                animation: float 15s linear infinite;
-            `;
-
-            particle.style.left = Math.random() * window.innerWidth + 'px';
-            particle.style.top = window.innerHeight + 'px';
-
-            document.body.appendChild(particle);
-
-            setTimeout(() => {
-                particle.remove();
-            }, 15000);
-        }
-
-        // Create particles periodically
-        setInterval(createParticle, 2000);
-
-        // Add CSS for particle animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes float {
-                0% {
-                    transform: translateY(0) rotate(0deg);
-                    opacity: 0;
-                }
-                10% {
-                    opacity: 1;
-                }
-                90% {
-                    opacity: 1;
-                }
-                100% {
-                    transform: translateY(-100vh) rotate(360deg);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 </body>
 </html>
